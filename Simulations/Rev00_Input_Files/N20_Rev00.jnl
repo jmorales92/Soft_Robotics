@@ -1,0 +1,912 @@
+# -*- coding: mbcs -*-
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.openStep(
+    'C:/Users/jmora/soft_robotics_3D/Simulations/Rev00_Input_Files/Gripper_t3.0_d0.5_b16_l9_n20.stp'
+    , scaleFromFile=OFF)
+mdb.models['Model-1'].PartFromGeometryFile(combine=False, dimensionality=
+    THREE_D, geometryFile=mdb.acis, name='Gripper_t30_d05_b16_l9_n20', type=
+    DEFORMABLE_BODY)
+# Save by jmora on 2017_05_18-22.01.05; build 6.14-5 2015_08_18-16.37.49 135153
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.saveAs(pathName='C:/Users/jmora/soft_robotics_3D/Simulations/Rev00_Input_Files/N20_Rev00.cae')
+# Save by jmora on 2017_05_18-22.31.49; build 6.14-5 2015_08_18-16.37.49 135153
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.models['Model-1'].Material(name='Elastosil')
+mdb.models['Model-1'].materials['Elastosil'].Density(table=((1011.0, ), ))
+mdb.models['Model-1'].materials['Elastosil'].Hyperelastic(materialType=
+    ISOTROPIC, table=((0.11, 0.02, 0.0, 0.0, 0.0, 0.0), ), testData=OFF, type=
+    YEOH, volumetricResponse=VOLUMETRIC_DATA)
+mdb.models['Model-1'].HomogeneousSolidSection(material='Elastosil', name=
+    'Section-1', thickness=None)
+mdb.models['Model-1'].parts['Gripper_t30_d05_b16_l9_n20'].Set(cells=
+    mdb.models['Model-1'].parts['Gripper_t30_d05_b16_l9_n20'].cells.getSequenceFromMask(
+    ('[#1 ]', ), ), name='Set-1')
+mdb.models['Model-1'].parts['Gripper_t30_d05_b16_l9_n20'].SectionAssignment(
+    offset=0.0, offsetField='', offsetType=MIDDLE_SURFACE, region=
+    mdb.models['Model-1'].parts['Gripper_t30_d05_b16_l9_n20'].sets['Set-1'], 
+    sectionName='Section-1', thicknessAssignment=FROM_SECTION)
+del mdb.models['Model-1'].parts['Gripper_t30_d05_b16_l9_n20'].sectionAssignments[0]
+mdb.models['Model-1'].parts['Gripper_t30_d05_b16_l9_n20'].Set(cells=
+    mdb.models['Model-1'].parts['Gripper_t30_d05_b16_l9_n20'].cells.getSequenceFromMask(
+    ('[#1 ]', ), ), name='Sec-Elastosil')
+mdb.models['Model-1'].parts['Gripper_t30_d05_b16_l9_n20'].SectionAssignment(
+    offset=0.0, offsetField='', offsetType=MIDDLE_SURFACE, region=
+    mdb.models['Model-1'].parts['Gripper_t30_d05_b16_l9_n20'].sets['Sec-Elastosil']
+    , sectionName='Section-1', thicknessAssignment=FROM_SECTION)
+mdb.models['Model-1'].parts['Gripper_t30_d05_b16_l9_n20'].Surface(name=
+    'Inner_Cavity', side1Faces=
+    mdb.models['Model-1'].parts['Gripper_t30_d05_b16_l9_n20'].faces.getSequenceFromMask(
+    ('[#888 ]', ), ))
+mdb.models['Model-1'].parts['Gripper_t30_d05_b16_l9_n20'].Surface(name=
+    'Inner_Cavity', side1Faces=
+    mdb.models['Model-1'].parts['Gripper_t30_d05_b16_l9_n20'].faces.getSequenceFromMask(
+    ('[#88000 ]', ), ))
+mdb.models['Model-1'].parts['Gripper_t30_d05_b16_l9_n20'].Surface(name=
+    'Inner_Cavity', side1Faces=
+    mdb.models['Model-1'].parts['Gripper_t30_d05_b16_l9_n20'].faces.getSequenceFromMask(
+    ('[#88000 ]', ), ))
+mdb.models['Model-1'].parts['Gripper_t30_d05_b16_l9_n20'].Surface(name=
+    'Inner_Cavity', side1Faces=
+    mdb.models['Model-1'].parts['Gripper_t30_d05_b16_l9_n20'].faces.getSequenceFromMask(
+    ('[#8800888 #0:2 #1554000 ]', ), ))
+mdb.models['Model-1'].parts['Gripper_t30_d05_b16_l9_n20'].Surface(name=
+    'Inner_Cavity', side1Faces=
+    mdb.models['Model-1'].parts['Gripper_t30_d05_b16_l9_n20'].faces.getSequenceFromMask(
+    ('[#88888889 #888 #0 #1555550 ]', ), ))
+mdb.models['Model-1'].parts['Gripper_t30_d05_b16_l9_n20'].Surface(name=
+    'Inner_Cavity', side1Faces=
+    mdb.models['Model-1'].parts['Gripper_t30_d05_b16_l9_n20'].faces.getSequenceFromMask(
+    ('[#88888889 #88888888 #55400008 #1555555 ]', ), ))
+mdb.models['Model-1'].parts['Gripper_t30_d05_b16_l9_n20'].Surface(name=
+    'Inner_Cavity', side1Faces=
+    mdb.models['Model-1'].parts['Gripper_t30_d05_b16_l9_n20'].faces.getSequenceFromMask(
+    ('[#88888889 #88888888 #55548888 #1555555 ]', ), ))
+mdb.models['Model-1'].parts['Gripper_t30_d05_b16_l9_n20'].Surface(name=
+    'Inner_Cavity', side1Faces=
+    mdb.models['Model-1'].parts['Gripper_t30_d05_b16_l9_n20'].faces.getSequenceFromMask(
+    ('[#aaaaaaa9 #aaaaaaaa #5556aaaa #1555555 ]', ), ))
+mdb.models['Model-1'].parts['Gripper_t30_d05_b16_l9_n20'].Surface(name=
+    'Inner_Cavity', side1Faces=
+    mdb.models['Model-1'].parts['Gripper_t30_d05_b16_l9_n20'].faces.getSequenceFromMask(
+    ('[#bbbbbbb9 #abbbbbbb #5556aaaa #a9555555 #2aaaaa ]', ), ))
+mdb.models['Model-1'].parts['Gripper_t30_d05_b16_l9_n20'].Surface(name=
+    'Inner_Cavity', side1Faces=
+    mdb.models['Model-1'].parts['Gripper_t30_d05_b16_l9_n20'].faces.getSequenceFromMask(
+    ('[#bbbbbbb9 #bbbbbbbb #5557bbbb #a9555555 #aaaaaaaa #2 ]', ), ))
+mdb.models['Model-1'].StaticStep(name='Step-Gravitz', nlgeom=ON, previous=
+    'Initial')
+mdb.models['Model-1'].rootAssembly.DatumCsysByDefault(CARTESIAN)
+mdb.models['Model-1'].rootAssembly.Instance(dependent=ON, name=
+    'Gripper_t30_d05_b16_l9_n20-1', part=
+    mdb.models['Model-1'].parts['Gripper_t30_d05_b16_l9_n20'])
+mdb.models['Model-1'].Gravity(comp3=-9810.0, createStepName='Step-Gravitz', 
+    distributionType=UNIFORM, field='', name='Load-Gravity')
+mdb.models['Model-1'].rootAssembly.Set(faces=
+    mdb.models['Model-1'].rootAssembly.instances['Gripper_t30_d05_b16_l9_n20-1'].faces.getSequenceFromMask(
+    ('[#0:5 #8 ]', ), ), name='Set-1')
+mdb.models['Model-1'].EncastreBC(createStepName='Step-Gravitz', localCsys=None, 
+    name='Fixed End', region=mdb.models['Model-1'].rootAssembly.sets['Set-1'])
+mdb.models['Model-1'].StaticStep(name='Step-Pressure', previous='Step-Gravitz')
+mdb.models['Model-1'].Pressure(amplitude=UNSET, createStepName='Step-Pressure', 
+    distributionType=UNIFORM, field='', magnitude=0.1, name='Load-Pressure', 
+    region=
+    mdb.models['Model-1'].rootAssembly.instances['Gripper_t30_d05_b16_l9_n20-1'].surfaces['Inner_Cavity'])
+mdb.models['Model-1'].ContactProperty('External Walls')
+mdb.models['Model-1'].interactionProperties['External Walls'].TangentialBehavior(
+    formulation=FRICTIONLESS)
+mdb.models['Model-1'].rootAssembly.Surface(name='Surf-1', side1Faces=
+    mdb.models['Model-1'].rootAssembly.instances['Gripper_t30_d05_b16_l9_n20-1'].faces.getSequenceFromMask(
+    ('[#0:5 #55554000 #55555555 #1555555 ]', ), ))
+mdb.models['Model-1'].SelfContactStd(createStepName='Step-Pressure', 
+    interactionProperty='External Walls', name='Walls', surface=
+    mdb.models['Model-1'].rootAssembly.surfaces['Surf-1'], thickness=ON)
+mdb.models['Model-1'].parts['Gripper_t30_d05_b16_l9_n20'].setMeshControls(
+    elemShape=TET, regions=
+    mdb.models['Model-1'].parts['Gripper_t30_d05_b16_l9_n20'].cells.getSequenceFromMask(
+    ('[#1 ]', ), ), technique=FREE)
+mdb.models['Model-1'].parts['Gripper_t30_d05_b16_l9_n20'].setElementType(
+    elemTypes=(ElemType(elemCode=C3D20R, elemLibrary=STANDARD), ElemType(
+    elemCode=C3D15, elemLibrary=STANDARD), ElemType(elemCode=C3D10, 
+    elemLibrary=STANDARD)), regions=(
+    mdb.models['Model-1'].parts['Gripper_t30_d05_b16_l9_n20'].cells.getSequenceFromMask(
+    ('[#1 ]', ), ), ))
+mdb.models['Model-1'].parts['Gripper_t30_d05_b16_l9_n20'].seedPart(
+    deviationFactor=0.1, minSizeValue=0.25, size=3.0)
+mdb.models['Model-1'].parts['Gripper_t30_d05_b16_l9_n20'].generateMesh()
+mdb.models['Model-1'].parts['Gripper_t30_d05_b16_l9_n20'].setElementType(
+    elemTypes=(ElemType(elemCode=C3D20R, elemLibrary=STANDARD), ElemType(
+    elemCode=C3D15, elemLibrary=STANDARD), ElemType(elemCode=C3D10H, 
+    elemLibrary=STANDARD)), regions=(
+    mdb.models['Model-1'].parts['Gripper_t30_d05_b16_l9_n20'].cells.getSequenceFromMask(
+    ('[#1 ]', ), ), ))
+mdb.models['Model-1'].rootAssembly.regenerate()
+mdb.Job(atTime=None, contactPrint=OFF, description='', echoPrint=OFF, 
+    explicitPrecision=SINGLE, getMemoryFromAnalysis=True, historyPrint=OFF, 
+    memory=90, memoryUnits=PERCENTAGE, model='Model-1', modelPrint=OFF, 
+    multiprocessingMode=DEFAULT, name='Job-1', nodalOutputPrecision=SINGLE, 
+    numCpus=2, numDomains=2, numGPUs=1, queue=None, resultsFormat=ODB, scratch=
+    '', type=ANALYSIS, userSubroutine='', waitHours=0, waitMinutes=0)
+mdb.jobs['Job-1'].submit(consistencyChecking=OFF)
+mdb.jobs['Job-1']._Message(STARTED, {'phase': BATCHPRE_PHASE, 
+    'clientHost': 'DESKTOP-JDTJBAF', 'handle': 0, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': '25 elements are distorted. Either the isoparametric angles are out of the suggested limits or the triangular or tetrahedral quality measure is bad. The elements have been identified in element set WarnElemDistorted.', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ODB_FILE, {'phase': BATCHPRE_PHASE, 
+    'file': 'C:\\Temp\\Job-1.odb', 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(COMPLETED, {'phase': BATCHPRE_PHASE, 
+    'message': 'Analysis phase complete', 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STARTED, {'phase': STANDARD_PHASE, 
+    'clientHost': 'DESKTOP-JDTJBAF', 'handle': 7916, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STEP, {'phase': STANDARD_PHASE, 'stepId': 1, 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 0.0, 'attempts': 0, 
+    'timeIncrement': 1.0, 'increment': 0, 'stepTime': 0.0, 'step': 1, 
+    'jobName': 'Job-1', 'severe': 0, 'iterations': 0, 'phase': STANDARD_PHASE, 
+    'equilibrium': 0})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 0, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(MEMORY_ESTIMATE, {'phase': STANDARD_PHASE, 
+    'jobName': 'Job-1', 'memory': 636.0})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'EXCESSIVE DISTORTION AT A TOTAL OF 49378 INTEGRATION POINTS IN SOLID (CONTINUUM) ELEMENTS', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 0.0, 'attempts': ' 1U', 
+    'timeIncrement': 1.0, 'increment': 1, 'stepTime': 0.0, 'step': 1, 
+    'jobName': 'Job-1', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'EXCESSIVE DISTORTION AT A TOTAL OF 49378 INTEGRATION POINTS IN SOLID (CONTINUUM) ELEMENTS', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 0.0, 'attempts': ' 2U', 
+    'timeIncrement': 0.25, 'increment': 1, 'stepTime': 0.0, 'step': 1, 
+    'jobName': 'Job-1', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'EXCESSIVE DISTORTION AT A TOTAL OF 49378 INTEGRATION POINTS IN SOLID (CONTINUUM) ELEMENTS', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 0.0, 'attempts': ' 3U', 
+    'timeIncrement': 0.0625, 'increment': 1, 'stepTime': 0.0, 'step': 1, 
+    'jobName': 'Job-1', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'EXCESSIVE DISTORTION AT A TOTAL OF 49378 INTEGRATION POINTS IN SOLID (CONTINUUM) ELEMENTS', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 0.0, 'attempts': ' 4U', 
+    'timeIncrement': 0.015625, 'increment': 1, 'stepTime': 0.0, 'step': 1, 
+    'jobName': 'Job-1', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'EXCESSIVE DISTORTION AT A TOTAL OF 49378 INTEGRATION POINTS IN SOLID (CONTINUUM) ELEMENTS', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 0.0, 'attempts': ' 5U', 
+    'timeIncrement': 0.00390625, 'increment': 1, 'stepTime': 0.0, 'step': 1, 
+    'jobName': 'Job-1', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Job-1']._Message(ERROR, {'phase': STANDARD_PHASE, 
+    'message': 'Too many attempts made for this increment', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ABORTED, {'phase': STANDARD_PHASE, 
+    'message': 'Analysis phase failed due to errors', 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ERROR, {
+    'message': 'Abaqus/Standard Analysis exited with an error - Please see the  message file for possible error messages if the file exists.', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(JOB_ABORTED, {
+    'message': 'Abaqus/Standard Analysis exited with an error - Please see the  message file for possible error messages if the file exists.', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1'].submit(consistencyChecking=OFF, datacheckJob=True)
+mdb.jobs['Job-1']._Message(STARTED, {'phase': BATCHPRE_PHASE, 
+    'clientHost': 'DESKTOP-JDTJBAF', 'handle': 0, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': '25 elements are distorted. Either the isoparametric angles are out of the suggested limits or the triangular or tetrahedral quality measure is bad. The elements have been identified in element set WarnElemDistorted.', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ODB_FILE, {'phase': BATCHPRE_PHASE, 
+    'file': 'C:\\Temp\\Job-1.odb', 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(COMPLETED, {'phase': BATCHPRE_PHASE, 
+    'message': 'Analysis phase complete', 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STARTED, {'phase': STANDARD_PHASE, 
+    'clientHost': 'DESKTOP-JDTJBAF', 'handle': 10056, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STEP, {'phase': STANDARD_PHASE, 'stepId': 1, 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 0.0, 'attempts': 0, 
+    'timeIncrement': 1.0, 'increment': 0, 'stepTime': 0.0, 'step': 1, 
+    'jobName': 'Job-1', 'severe': 0, 'iterations': 0, 'phase': STANDARD_PHASE, 
+    'equilibrium': 0})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 0, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(MEMORY_ESTIMATE, {'phase': STANDARD_PHASE, 
+    'jobName': 'Job-1', 'memory': 1709.0})
+mdb.jobs['Job-1']._Message(COMPLETED, {'phase': STANDARD_PHASE, 
+    'message': 'Analysis phase complete', 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(JOB_COMPLETED, {'time': 'Thu May 18 23:21:44 2017', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1'].setValues(nodalOutputPrecision=FULL, numCpus=8, numDomains=8, 
+    numGPUs=0)
+mdb.jobs['Job-1'].submit(consistencyChecking=OFF)
+mdb.jobs['Job-1']._Message(STARTED, {'phase': BATCHPRE_PHASE, 
+    'clientHost': 'DESKTOP-JDTJBAF', 'handle': 0, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': '25 elements are distorted. Either the isoparametric angles are out of the suggested limits or the triangular or tetrahedral quality measure is bad. The elements have been identified in element set WarnElemDistorted.', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ODB_FILE, {'phase': BATCHPRE_PHASE, 
+    'file': 'C:\\Temp\\Job-1.odb', 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(COMPLETED, {'phase': BATCHPRE_PHASE, 
+    'message': 'Analysis phase complete', 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STARTED, {'phase': STANDARD_PHASE, 
+    'clientHost': 'DESKTOP-JDTJBAF', 'handle': 5880, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STEP, {'phase': STANDARD_PHASE, 'stepId': 1, 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 0.0, 'attempts': 0, 
+    'timeIncrement': 1.0, 'increment': 0, 'stepTime': 0.0, 'step': 1, 
+    'jobName': 'Job-1', 'severe': 0, 'iterations': 0, 'phase': STANDARD_PHASE, 
+    'equilibrium': 0})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 0, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(MEMORY_ESTIMATE, {'phase': STANDARD_PHASE, 
+    'jobName': 'Job-1', 'memory': 636.0})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'EXCESSIVE DISTORTION AT A TOTAL OF 50242 INTEGRATION POINTS IN SOLID (CONTINUUM) ELEMENTS', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 0.0, 'attempts': ' 1U', 
+    'timeIncrement': 1.0, 'increment': 1, 'stepTime': 0.0, 'step': 1, 
+    'jobName': 'Job-1', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'EXCESSIVE DISTORTION AT A TOTAL OF 50701 INTEGRATION POINTS IN SOLID (CONTINUUM) ELEMENTS', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 0.0, 'attempts': ' 2U', 
+    'timeIncrement': 0.25, 'increment': 1, 'stepTime': 0.0, 'step': 1, 
+    'jobName': 'Job-1', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'EXCESSIVE DISTORTION AT A TOTAL OF 50595 INTEGRATION POINTS IN SOLID (CONTINUUM) ELEMENTS', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 0.0, 'attempts': ' 3U', 
+    'timeIncrement': 0.0625, 'increment': 1, 'stepTime': 0.0, 'step': 1, 
+    'jobName': 'Job-1', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'EXCESSIVE DISTORTION AT A TOTAL OF 50391 INTEGRATION POINTS IN SOLID (CONTINUUM) ELEMENTS', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 0.0, 'attempts': ' 4U', 
+    'timeIncrement': 0.015625, 'increment': 1, 'stepTime': 0.0, 'step': 1, 
+    'jobName': 'Job-1', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'EXCESSIVE DISTORTION AT A TOTAL OF 50551 INTEGRATION POINTS IN SOLID (CONTINUUM) ELEMENTS', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 0.0, 'attempts': ' 5U', 
+    'timeIncrement': 0.00390625, 'increment': 1, 'stepTime': 0.0, 'step': 1, 
+    'jobName': 'Job-1', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Job-1']._Message(ERROR, {'phase': STANDARD_PHASE, 
+    'message': 'Too many attempts made for this increment', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ABORTED, {'phase': STANDARD_PHASE, 
+    'message': 'Analysis phase failed due to errors', 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ERROR, {
+    'message': 'Abaqus/Standard Analysis exited with an error - Please see the  message file for possible error messages if the file exists.', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(JOB_ABORTED, {
+    'message': 'Abaqus/Standard Analysis exited with an error - Please see the  message file for possible error messages if the file exists.', 
+    'jobName': 'Job-1'})
+mdb.models['Model-1'].parts['Gripper_t30_d05_b16_l9_n20'].deleteMesh()
+mdb.models['Model-1'].parts['Gripper_t30_d05_b16_l9_n20'].seedPart(
+    deviationFactor=0.1, minSizeFactor=0.1, size=1.0)
+mdb.models['Model-1'].parts['Gripper_t30_d05_b16_l9_n20'].generateMesh()
+mdb.models['Model-1'].rootAssembly.regenerate()
+mdb.jobs['Job-1'].submit(consistencyChecking=OFF)
+mdb.jobs['Job-1']._Message(STARTED, {'phase': BATCHPRE_PHASE, 
+    'clientHost': 'DESKTOP-JDTJBAF', 'handle': 0, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': '2 elements are distorted. Either the isoparametric angles are out of the suggested limits or the triangular or tetrahedral quality measure is bad. The elements have been identified in element set WarnElemDistorted.', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ODB_FILE, {'phase': BATCHPRE_PHASE, 
+    'file': 'C:\\Temp\\Job-1.odb', 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(COMPLETED, {'phase': BATCHPRE_PHASE, 
+    'message': 'Analysis phase complete', 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STARTED, {'phase': STANDARD_PHASE, 
+    'clientHost': 'DESKTOP-JDTJBAF', 'handle': 12468, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STEP, {'phase': STANDARD_PHASE, 'stepId': 1, 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 0.0, 'attempts': 0, 
+    'timeIncrement': 1.0, 'increment': 0, 'stepTime': 0.0, 'step': 1, 
+    'jobName': 'Job-1', 'severe': 0, 'iterations': 0, 'phase': STANDARD_PHASE, 
+    'equilibrium': 0})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 0, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(MEMORY_ESTIMATE, {'phase': STANDARD_PHASE, 
+    'jobName': 'Job-1', 'memory': 11043.0})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'EXCESSIVE DISTORTION AT A TOTAL OF 940815 INTEGRATION POINTS IN SOLID (CONTINUUM) ELEMENTS', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 0.0, 'attempts': ' 1U', 
+    'timeIncrement': 1.0, 'increment': 1, 'stepTime': 0.0, 'step': 1, 
+    'jobName': 'Job-1', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'EXCESSIVE DISTORTION AT A TOTAL OF 936996 INTEGRATION POINTS IN SOLID (CONTINUUM) ELEMENTS', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 0.0, 'attempts': ' 2U', 
+    'timeIncrement': 0.25, 'increment': 1, 'stepTime': 0.0, 'step': 1, 
+    'jobName': 'Job-1', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Job-1']._Message(ERROR, {'phase': STANDARD_PHASE, 
+    'message': 'Process terminated by external request (SIGTERM or SIGINT received).', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(INTERRUPTED, {'phase': STANDARD_PHASE, 
+    'message': 'Analysis interrupted by external signal', 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ERROR, {
+    'message': 'Abaqus/Standard Analysis exited with an error - Please see the  message file for possible error messages if the file exists.', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(JOB_ABORTED, {
+    'message': 'Abaqus/Standard Analysis exited with an error - Please see the  message file for possible error messages if the file exists.', 
+    'jobName': 'Job-1'})
+del mdb.jobs['Job-1']
+mdb.models['Model-1'].parts['Gripper_t30_d05_b16_l9_n20'].deleteMesh()
+mdb.models['Model-1'].parts['Gripper_t30_d05_b16_l9_n20'].seedPart(
+    deviationFactor=0.1, minSizeValue=0.25, size=3.0)
+mdb.models['Model-1'].parts['Gripper_t30_d05_b16_l9_n20'].generateMesh()
+mdb.models['Model-1'].rootAssembly.regenerate()
+mdb.models['Model-1'].loads['Load-Pressure'].setValues(magnitude=0.055)
+mdb.Job(atTime=None, contactPrint=OFF, description='', echoPrint=OFF, 
+    explicitPrecision=SINGLE, getMemoryFromAnalysis=True, historyPrint=OFF, 
+    memory=90, memoryUnits=PERCENTAGE, model='Model-1', modelPrint=OFF, 
+    multiprocessingMode=THREADS, name='Job-1', nodalOutputPrecision=SINGLE, 
+    numCpus=8, numDomains=8, numGPUs=0, queue=None, resultsFormat=ODB, scratch=
+    '', type=ANALYSIS, userSubroutine='', waitHours=0, waitMinutes=0)
+mdb.jobs['Job-1'].submit(consistencyChecking=OFF)
+mdb.jobs['Job-1']._Message(STARTED, {'phase': BATCHPRE_PHASE, 
+    'clientHost': 'DESKTOP-JDTJBAF', 'handle': 0, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': '21 elements are distorted. Either the isoparametric angles are out of the suggested limits or the triangular or tetrahedral quality measure is bad. The elements have been identified in element set WarnElemDistorted.', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ODB_FILE, {'phase': BATCHPRE_PHASE, 
+    'file': 'C:\\Temp\\Job-1.odb', 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(COMPLETED, {'phase': BATCHPRE_PHASE, 
+    'message': 'Analysis phase complete', 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STARTED, {'phase': STANDARD_PHASE, 
+    'clientHost': 'DESKTOP-JDTJBAF', 'handle': 8392, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STEP, {'phase': STANDARD_PHASE, 'stepId': 1, 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 0.0, 'attempts': 0, 
+    'timeIncrement': 1.0, 'increment': 0, 'stepTime': 0.0, 'step': 1, 
+    'jobName': 'Job-1', 'severe': 0, 'iterations': 0, 'phase': STANDARD_PHASE, 
+    'equilibrium': 0})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 0, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(MEMORY_ESTIMATE, {'phase': STANDARD_PHASE, 
+    'jobName': 'Job-1', 'memory': 635.0})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'EXCESSIVE DISTORTION AT A TOTAL OF 49917 INTEGRATION POINTS IN SOLID (CONTINUUM) ELEMENTS', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 0.0, 'attempts': ' 1U', 
+    'timeIncrement': 1.0, 'increment': 1, 'stepTime': 0.0, 'step': 1, 
+    'jobName': 'Job-1', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'EXCESSIVE DISTORTION AT A TOTAL OF 50063 INTEGRATION POINTS IN SOLID (CONTINUUM) ELEMENTS', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 0.0, 'attempts': ' 2U', 
+    'timeIncrement': 0.25, 'increment': 1, 'stepTime': 0.0, 'step': 1, 
+    'jobName': 'Job-1', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'EXCESSIVE DISTORTION AT A TOTAL OF 50003 INTEGRATION POINTS IN SOLID (CONTINUUM) ELEMENTS', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 0.0, 'attempts': ' 3U', 
+    'timeIncrement': 0.0625, 'increment': 1, 'stepTime': 0.0, 'step': 1, 
+    'jobName': 'Job-1', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'EXCESSIVE DISTORTION AT A TOTAL OF 49947 INTEGRATION POINTS IN SOLID (CONTINUUM) ELEMENTS', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 0.0, 'attempts': ' 4U', 
+    'timeIncrement': 0.015625, 'increment': 1, 'stepTime': 0.0, 'step': 1, 
+    'jobName': 'Job-1', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'EXCESSIVE DISTORTION AT A TOTAL OF 50178 INTEGRATION POINTS IN SOLID (CONTINUUM) ELEMENTS', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 0.0, 'attempts': ' 5U', 
+    'timeIncrement': 0.00390625, 'increment': 1, 'stepTime': 0.0, 'step': 1, 
+    'jobName': 'Job-1', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Job-1']._Message(ERROR, {'phase': STANDARD_PHASE, 
+    'message': 'Too many attempts made for this increment', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ABORTED, {'phase': STANDARD_PHASE, 
+    'message': 'Analysis phase failed due to errors', 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ERROR, {
+    'message': 'Abaqus/Standard Analysis exited with an error - Please see the  message file for possible error messages if the file exists.', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(JOB_ABORTED, {
+    'message': 'Abaqus/Standard Analysis exited with an error - Please see the  message file for possible error messages if the file exists.', 
+    'jobName': 'Job-1'})
+mdb.models['Model-1'].parts['Gripper_t30_d05_b16_l9_n20'].deleteMesh(regions=
+    mdb.models['Model-1'].parts['Gripper_t30_d05_b16_l9_n20'].cells.getSequenceFromMask(
+    ('[#1 ]', ), ))
+mdb.models['Model-1'].parts['Gripper_t30_d05_b16_l9_n20'].setMeshControls(
+    elemShape=HEX, regions=
+    mdb.models['Model-1'].parts['Gripper_t30_d05_b16_l9_n20'].cells.getSequenceFromMask(
+    ('[#1 ]', ), ), technique=SYSTEM_ASSIGN)
+mdb.models['Model-1'].parts['Gripper_t30_d05_b16_l9_n20'].setMeshControls(
+    elemShape=TET, regions=
+    mdb.models['Model-1'].parts['Gripper_t30_d05_b16_l9_n20'].cells.getSequenceFromMask(
+    ('[#1 ]', ), ), technique=FREE)
+mdb.models['Model-1'].parts['Gripper_t30_d05_b16_l9_n20'].generateMesh()
+mdb.models['Model-1'].parts['Gripper_t30_d05_b16_l9_n20'].deleteMesh()
+mdb.models['Model-1'].parts['Gripper_t30_d05_b16_l9_n20'].seedPart(
+    deviationFactor=0.1, minSizeValue=0.25, size=1.0)
+mdb.models['Model-1'].parts['Gripper_t30_d05_b16_l9_n20'].generateMesh()
+mdb.models['Model-1'].rootAssembly.regenerate()
+mdb.models['Model-1'].parts['Gripper_t30_d05_b16_l9_n20'].setElementType(
+    elemTypes=(ElemType(elemCode=UNKNOWN_HEX, elemLibrary=EXPLICIT), ElemType(
+    elemCode=UNKNOWN_WEDGE, elemLibrary=EXPLICIT), ElemType(elemCode=C3D10M, 
+    elemLibrary=EXPLICIT, secondOrderAccuracy=OFF, distortionControl=DEFAULT)), 
+    regions=(
+    mdb.models['Model-1'].parts['Gripper_t30_d05_b16_l9_n20'].cells.getSequenceFromMask(
+    ('[#1 ]', ), ), ))
+mdb.models['Model-1'].parts['Gripper_t30_d05_b16_l9_n20'].deleteMesh()
+mdb.models['Model-1'].parts['Gripper_t30_d05_b16_l9_n20'].seedPart(
+    deviationFactor=0.1, minSizeValue=0.25, size=3.0)
+mdb.models['Model-1'].parts['Gripper_t30_d05_b16_l9_n20'].generateMesh()
+mdb.models['Model-1'].parts['Gripper_t30_d05_b16_l9_n20'].setElementType(
+    elemTypes=(ElemType(elemCode=UNKNOWN_HEX, elemLibrary=EXPLICIT), ElemType(
+    elemCode=UNKNOWN_WEDGE, elemLibrary=EXPLICIT), ElemType(elemCode=C3D10M, 
+    elemLibrary=EXPLICIT, secondOrderAccuracy=OFF, distortionControl=OFF)), 
+    regions=(
+    mdb.models['Model-1'].parts['Gripper_t30_d05_b16_l9_n20'].cells.getSequenceFromMask(
+    ('[#1 ]', ), ), ))
+mdb.models['Model-1'].parts['Gripper_t30_d05_b16_l9_n20'].setElementType(
+    elemTypes=(ElemType(elemCode=UNKNOWN_HEX, elemLibrary=EXPLICIT), ElemType(
+    elemCode=UNKNOWN_WEDGE, elemLibrary=EXPLICIT), ElemType(elemCode=C3D10M, 
+    elemLibrary=EXPLICIT, secondOrderAccuracy=OFF, distortionControl=OFF)), 
+    regions=(
+    mdb.models['Model-1'].parts['Gripper_t30_d05_b16_l9_n20'].cells.getSequenceFromMask(
+    ('[#1 ]', ), ), ))
+mdb.models['Model-1'].rootAssembly.regenerate()
+mdb.jobs['Job-1'].submit(consistencyChecking=OFF)
+mdb.jobs['Job-1']._Message(STARTED, {'phase': BATCHPRE_PHASE, 
+    'clientHost': 'DESKTOP-JDTJBAF', 'handle': 0, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'DISTORTION CONTROL PARAMETER FOR THE *SECTION CONTROLS OPTION IN Abaqus/Standard IS VALID ONLY FOR C3D10I ELEMENTS AND WILL BE IGNORED FOR ALL OTHER ELEMENT TYPES IN THE CURRENT ANALYSIS. IT WILL, HOWEVER, BE STORED FOR ANY SUBSEQUENT Abaqus/Explicit IMPORT ANALYSIS', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': '93 elements are distorted. Either the isoparametric angles are out of the suggested limits or the triangular or tetrahedral quality measure is bad. The elements have been identified in element set WarnElemDistorted.', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ODB_FILE, {'phase': BATCHPRE_PHASE, 
+    'file': 'C:\\Temp\\Job-1.odb', 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(COMPLETED, {'phase': BATCHPRE_PHASE, 
+    'message': 'Analysis phase complete', 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STARTED, {'phase': STANDARD_PHASE, 
+    'clientHost': 'DESKTOP-JDTJBAF', 'handle': 10376, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STEP, {'phase': STANDARD_PHASE, 'stepId': 1, 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ERROR, {'phase': STANDARD_PHASE, 
+    'message': 'INCOMPRESSIBLE HYPERELASTIC MATERIALS CAN ONLY BE USED WITH HYBRID, PLANE STRESS, OR 1D ELEMENTS', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ABORTED, {'phase': STANDARD_PHASE, 
+    'message': 'Analysis phase failed due to errors', 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ERROR, {
+    'message': 'Abaqus/Standard Analysis exited with an error - Please see the  message file for possible error messages if the file exists.', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(JOB_ABORTED, {
+    'message': 'Abaqus/Standard Analysis exited with an error - Please see the  message file for possible error messages if the file exists.', 
+    'jobName': 'Job-1'})
+mdb.models['Model-1'].parts['Gripper_t30_d05_b16_l9_n20'].setElementType(
+    elemTypes=(ElemType(elemCode=UNKNOWN_HEX, elemLibrary=EXPLICIT), ElemType(
+    elemCode=UNKNOWN_WEDGE, elemLibrary=EXPLICIT), ElemType(elemCode=C3D10M, 
+    elemLibrary=EXPLICIT, secondOrderAccuracy=OFF, distortionControl=DEFAULT)), 
+    regions=(
+    mdb.models['Model-1'].parts['Gripper_t30_d05_b16_l9_n20'].cells.getSequenceFromMask(
+    ('[#1 ]', ), ), ))
+mdb.models['Model-1'].rootAssembly.regenerate()
+mdb.jobs['Job-1'].submit(consistencyChecking=OFF)
+mdb.jobs['Job-1']._Message(STARTED, {'phase': BATCHPRE_PHASE, 
+    'clientHost': 'DESKTOP-JDTJBAF', 'handle': 0, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': '93 elements are distorted. Either the isoparametric angles are out of the suggested limits or the triangular or tetrahedral quality measure is bad. The elements have been identified in element set WarnElemDistorted.', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ODB_FILE, {'phase': BATCHPRE_PHASE, 
+    'file': 'C:\\Temp\\Job-1.odb', 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(COMPLETED, {'phase': BATCHPRE_PHASE, 
+    'message': 'Analysis phase complete', 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STARTED, {'phase': STANDARD_PHASE, 
+    'clientHost': 'DESKTOP-JDTJBAF', 'handle': 1976, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STEP, {'phase': STANDARD_PHASE, 'stepId': 1, 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ERROR, {'phase': STANDARD_PHASE, 
+    'message': 'INCOMPRESSIBLE HYPERELASTIC MATERIALS CAN ONLY BE USED WITH HYBRID, PLANE STRESS, OR 1D ELEMENTS', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ABORTED, {'phase': STANDARD_PHASE, 
+    'message': 'Analysis phase failed due to errors', 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ERROR, {
+    'message': 'Abaqus/Standard Analysis exited with an error - Please see the  message file for possible error messages if the file exists.', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(JOB_ABORTED, {
+    'message': 'Abaqus/Standard Analysis exited with an error - Please see the  message file for possible error messages if the file exists.', 
+    'jobName': 'Job-1'})
+mdb.models['Model-1'].parts['Gripper_t30_d05_b16_l9_n20'].setElementType(
+    elemTypes=(ElemType(elemCode=C3D20R, elemLibrary=STANDARD), ElemType(
+    elemCode=C3D15, elemLibrary=STANDARD), ElemType(elemCode=C3D10H, 
+    elemLibrary=STANDARD)), regions=(
+    mdb.models['Model-1'].parts['Gripper_t30_d05_b16_l9_n20'].cells.getSequenceFromMask(
+    ('[#1 ]', ), ), ))
+mdb.models['Model-1'].parts['Gripper_t30_d05_b16_l9_n20'].setElementType(
+    elemTypes=(ElemType(elemCode=C3D20R, elemLibrary=STANDARD), ElemType(
+    elemCode=C3D15, elemLibrary=STANDARD), ElemType(elemCode=C3D10H, 
+    elemLibrary=STANDARD)), regions=(
+    mdb.models['Model-1'].parts['Gripper_t30_d05_b16_l9_n20'].cells.getSequenceFromMask(
+    ('[#1 ]', ), ), ))
+mdb.models['Model-1'].rootAssembly.regenerate()
+mdb.jobs['Job-1'].submit(consistencyChecking=OFF)
+mdb.jobs['Job-1']._Message(STARTED, {'phase': BATCHPRE_PHASE, 
+    'clientHost': 'DESKTOP-JDTJBAF', 'handle': 0, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': '21 elements are distorted. Either the isoparametric angles are out of the suggested limits or the triangular or tetrahedral quality measure is bad. The elements have been identified in element set WarnElemDistorted.', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ODB_FILE, {'phase': BATCHPRE_PHASE, 
+    'file': 'C:\\Temp\\Job-1.odb', 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(COMPLETED, {'phase': BATCHPRE_PHASE, 
+    'message': 'Analysis phase complete', 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STARTED, {'phase': STANDARD_PHASE, 
+    'clientHost': 'DESKTOP-JDTJBAF', 'handle': 2496, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STEP, {'phase': STANDARD_PHASE, 'stepId': 1, 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 0.0, 'attempts': 0, 
+    'timeIncrement': 1.0, 'increment': 0, 'stepTime': 0.0, 'step': 1, 
+    'jobName': 'Job-1', 'severe': 0, 'iterations': 0, 'phase': STANDARD_PHASE, 
+    'equilibrium': 0})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 0, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(MEMORY_ESTIMATE, {'phase': STANDARD_PHASE, 
+    'jobName': 'Job-1', 'memory': 635.0})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'EXCESSIVE DISTORTION AT A TOTAL OF 50453 INTEGRATION POINTS IN SOLID (CONTINUUM) ELEMENTS', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 0.0, 'attempts': ' 1U', 
+    'timeIncrement': 1.0, 'increment': 1, 'stepTime': 0.0, 'step': 1, 
+    'jobName': 'Job-1', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'EXCESSIVE DISTORTION AT A TOTAL OF 50192 INTEGRATION POINTS IN SOLID (CONTINUUM) ELEMENTS', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 0.0, 'attempts': ' 2U', 
+    'timeIncrement': 0.25, 'increment': 1, 'stepTime': 0.0, 'step': 1, 
+    'jobName': 'Job-1', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'EXCESSIVE DISTORTION AT A TOTAL OF 49990 INTEGRATION POINTS IN SOLID (CONTINUUM) ELEMENTS', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 0.0, 'attempts': ' 3U', 
+    'timeIncrement': 0.0625, 'increment': 1, 'stepTime': 0.0, 'step': 1, 
+    'jobName': 'Job-1', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'EXCESSIVE DISTORTION AT A TOTAL OF 50084 INTEGRATION POINTS IN SOLID (CONTINUUM) ELEMENTS', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 0.0, 'attempts': ' 4U', 
+    'timeIncrement': 0.015625, 'increment': 1, 'stepTime': 0.0, 'step': 1, 
+    'jobName': 'Job-1', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'EXCESSIVE DISTORTION AT A TOTAL OF 50377 INTEGRATION POINTS IN SOLID (CONTINUUM) ELEMENTS', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 0.0, 'attempts': ' 5U', 
+    'timeIncrement': 0.00390625, 'increment': 1, 'stepTime': 0.0, 'step': 1, 
+    'jobName': 'Job-1', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Job-1']._Message(ERROR, {'phase': STANDARD_PHASE, 
+    'message': 'Too many attempts made for this increment', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ABORTED, {'phase': STANDARD_PHASE, 
+    'message': 'Analysis phase failed due to errors', 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ERROR, {
+    'message': 'Abaqus/Standard Analysis exited with an error - Please see the  message file for possible error messages if the file exists.', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(JOB_ABORTED, {
+    'message': 'Abaqus/Standard Analysis exited with an error - Please see the  message file for possible error messages if the file exists.', 
+    'jobName': 'Job-1'})
+mdb.models['Model-1'].interactions['Walls'].suppress()
+mdb.jobs['Job-1'].submit(consistencyChecking=OFF)
+mdb.jobs['Job-1']._Message(STARTED, {'phase': BATCHPRE_PHASE, 
+    'clientHost': 'DESKTOP-JDTJBAF', 'handle': 0, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': '21 elements are distorted. Either the isoparametric angles are out of the suggested limits or the triangular or tetrahedral quality measure is bad. The elements have been identified in element set WarnElemDistorted.', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ODB_FILE, {'phase': BATCHPRE_PHASE, 
+    'file': 'C:\\Temp\\Job-1.odb', 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(COMPLETED, {'phase': BATCHPRE_PHASE, 
+    'message': 'Analysis phase complete', 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STARTED, {'phase': STANDARD_PHASE, 
+    'clientHost': 'DESKTOP-JDTJBAF', 'handle': 13472, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STEP, {'phase': STANDARD_PHASE, 'stepId': 1, 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 0.0, 'attempts': 0, 
+    'timeIncrement': 1.0, 'increment': 0, 'stepTime': 0.0, 'step': 1, 
+    'jobName': 'Job-1', 'severe': 0, 'iterations': 0, 'phase': STANDARD_PHASE, 
+    'equilibrium': 0})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 0, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(MEMORY_ESTIMATE, {'phase': STANDARD_PHASE, 
+    'jobName': 'Job-1', 'memory': 607.0})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'EXCESSIVE DISTORTION AT A TOTAL OF 50156 INTEGRATION POINTS IN SOLID (CONTINUUM) ELEMENTS', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 0.0, 'attempts': ' 1U', 
+    'timeIncrement': 1.0, 'increment': 1, 'stepTime': 0.0, 'step': 1, 
+    'jobName': 'Job-1', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'EXCESSIVE DISTORTION AT A TOTAL OF 50130 INTEGRATION POINTS IN SOLID (CONTINUUM) ELEMENTS', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 0.0, 'attempts': ' 2U', 
+    'timeIncrement': 0.25, 'increment': 1, 'stepTime': 0.0, 'step': 1, 
+    'jobName': 'Job-1', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'EXCESSIVE DISTORTION AT A TOTAL OF 50374 INTEGRATION POINTS IN SOLID (CONTINUUM) ELEMENTS', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 0.0, 'attempts': ' 3U', 
+    'timeIncrement': 0.0625, 'increment': 1, 'stepTime': 0.0, 'step': 1, 
+    'jobName': 'Job-1', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'EXCESSIVE DISTORTION AT A TOTAL OF 50353 INTEGRATION POINTS IN SOLID (CONTINUUM) ELEMENTS', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 0.0, 'attempts': ' 4U', 
+    'timeIncrement': 0.015625, 'increment': 1, 'stepTime': 0.0, 'step': 1, 
+    'jobName': 'Job-1', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'EXCESSIVE DISTORTION AT A TOTAL OF 50310 INTEGRATION POINTS IN SOLID (CONTINUUM) ELEMENTS', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 0.0, 'attempts': ' 5U', 
+    'timeIncrement': 0.00390625, 'increment': 1, 'stepTime': 0.0, 'step': 1, 
+    'jobName': 'Job-1', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Job-1']._Message(ERROR, {'phase': STANDARD_PHASE, 
+    'message': 'Too many attempts made for this increment', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ABORTED, {'phase': STANDARD_PHASE, 
+    'message': 'Analysis phase failed due to errors', 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ERROR, {
+    'message': 'Abaqus/Standard Analysis exited with an error - Please see the  message file for possible error messages if the file exists.', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(JOB_ABORTED, {
+    'message': 'Abaqus/Standard Analysis exited with an error - Please see the  message file for possible error messages if the file exists.', 
+    'jobName': 'Job-1'})
+mdb.models['Model-1'].parts['Gripper_t30_d05_b16_l9_n20'].setMeshControls(
+    elemShape=HEX, regions=
+    mdb.models['Model-1'].parts['Gripper_t30_d05_b16_l9_n20'].cells.getSequenceFromMask(
+    ('[#1 ]', ), ), technique=BOTTOM_UP)
+mdb.models['Model-1'].parts['Gripper_t30_d05_b16_l9_n20'].deleteMesh(regions=
+    mdb.models['Model-1'].parts['Gripper_t30_d05_b16_l9_n20'].cells.getSequenceFromMask(
+    ('[#1 ]', ), ))
+mdb.models['Model-1'].parts['Gripper_t30_d05_b16_l9_n20'].setMeshControls(
+    elemShape=TET, regions=
+    mdb.models['Model-1'].parts['Gripper_t30_d05_b16_l9_n20'].cells.getSequenceFromMask(
+    ('[#1 ]', ), ), technique=FREE)
+mdb.models['Model-1'].parts['Gripper_t30_d05_b16_l9_n20'].generateMesh()
+mdb.models['Model-1'].rootAssembly.regenerate()
+mdb.models['Model-1'].steps['Step-Pressure'].setValues(noStop=ON, 
+    timeIncrementationMethod=FIXED)
+mdb.models['Model-1'].interactions['Walls'].suppress()
+mdb.models['Model-1'].interactions['Walls'].resume()
+mdb.models['Model-1'].parts['Gripper_t30_d05_b16_l9_n20'].deleteMesh()
+mdb.models['Model-1'].parts['Gripper_t30_d05_b16_l9_n20'].seedPart(
+    deviationFactor=0.1, minSizeValue=0.1, size=3.0)
+mdb.models['Model-1'].parts['Gripper_t30_d05_b16_l9_n20'].generateMesh()
+mdb.models['Model-1'].parts['Gripper_t30_d05_b16_l9_n20'].deleteMesh()
+mdb.models['Model-1'].parts['Gripper_t30_d05_b16_l9_n20'].seedPart(
+    deviationFactor=0.1, minSizeValue=0.1, size=1.0)
+mdb.models['Model-1'].parts['Gripper_t30_d05_b16_l9_n20'].generateMesh()
+mdb.models['Model-1'].parts['Gripper_t30_d05_b16_l9_n20'].deleteMesh()
+mdb.models['Model-1'].parts['Gripper_t30_d05_b16_l9_n20'].seedPart(
+    deviationFactor=0.1, minSizeValue=0.05, size=1.0)
+mdb.models['Model-1'].parts['Gripper_t30_d05_b16_l9_n20'].generateMesh()
+mdb.models['Model-1'].rootAssembly.regenerate()
+mdb.models['Model-1'].loads['Load-Pressure'].setValues(magnitude=0.01)
+# Save by jmora on 2017_05_19-00.24.26; build 6.14-5 2015_08_18-16.37.49 135153
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.jobs['Job-1'].submit(consistencyChecking=OFF)
+mdb.jobs['Job-1']._Message(STARTED, {'phase': BATCHPRE_PHASE, 
+    'clientHost': 'DESKTOP-JDTJBAF', 'handle': 0, 'jobName': 'Job-1'})
+# Save by jmora on 2017_05_19-00.30.15; build 6.14-5 2015_08_18-16.37.49 135153
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.models['Model-1'].materials['Elastosil'].density.setValues(table=((
+    1.011e-09, ), ))
+# Save by jmora on 2017_05_19-00.57.14; build 6.14-5 2015_08_18-16.37.49 135153
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.models['Model-1'].parts['Gripper_t30_d05_b16_l9_n20'].setElementType(
+    elemTypes=(ElemType(elemCode=C3D20R, elemLibrary=STANDARD), ElemType(
+    elemCode=C3D15, elemLibrary=STANDARD), ElemType(elemCode=C3D10H, 
+    elemLibrary=STANDARD)), regions=(
+    mdb.models['Model-1'].parts['Gripper_t30_d05_b16_l9_n20'].cells.getSequenceFromMask(
+    ('[#1 ]', ), ), ))
+# Save by jmora on 2017_05_19-01.01.03; build 6.14-5 2015_08_18-16.37.49 135153
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.JobFromInputFile(inputFileName='Elastosil_2', name='Elastosil_2', type=
+    SYNTAXCHECK)
+mdb.jobs['Elastosil_2'].submit()
+mdb.jobs['Elastosil_2'].waitForCompletion()
+mdb.models['Model-1'].rootAssembly.regenerate()
+del mdb.jobs['Job-1']
+mdb.Job(atTime=None, contactPrint=OFF, description='', echoPrint=OFF, 
+    explicitPrecision=SINGLE, getMemoryFromAnalysis=True, historyPrint=OFF, 
+    memory=90, memoryUnits=PERCENTAGE, model='Model-1', modelPrint=OFF, 
+    multiprocessingMode=DEFAULT, name='Job-2', nodalOutputPrecision=SINGLE, 
+    numCpus=6, numDomains=6, numGPUs=1, queue=None, resultsFormat=ODB, scratch=
+    '', type=ANALYSIS, userSubroutine='', waitHours=0, waitMinutes=0)
+mdb.jobs['Job-2'].submit(consistencyChecking=OFF)
+mdb.jobs['Job-2']._Message(STARTED, {'phase': BATCHPRE_PHASE, 
+    'clientHost': 'DESKTOP-JDTJBAF', 'handle': 0, 'jobName': 'Job-2'})
+mdb.jobs['Job-2']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': '4 elements are distorted. Either the isoparametric angles are out of the suggested limits or the triangular or tetrahedral quality measure is bad. The elements have been identified in element set WarnElemDistorted.', 
+    'jobName': 'Job-2'})
+mdb.jobs['Job-2']._Message(ODB_FILE, {'phase': BATCHPRE_PHASE, 
+    'file': 'C:\\Temp\\Job-2.odb', 'jobName': 'Job-2'})
+mdb.jobs['Job-2']._Message(COMPLETED, {'phase': BATCHPRE_PHASE, 
+    'message': 'Analysis phase complete', 'jobName': 'Job-2'})
+mdb.jobs['Job-2']._Message(STARTED, {'phase': STANDARD_PHASE, 
+    'clientHost': 'DESKTOP-JDTJBAF', 'handle': 236, 'jobName': 'Job-2'})
+mdb.jobs['Job-2']._Message(STEP, {'phase': STANDARD_PHASE, 'stepId': 1, 
+    'jobName': 'Job-2'})
+mdb.jobs['Job-2']._Message(STATUS, {'totalTime': 0.0, 'attempts': 0, 
+    'timeIncrement': 1.0, 'increment': 0, 'stepTime': 0.0, 'step': 1, 
+    'jobName': 'Job-2', 'severe': 0, 'iterations': 0, 'phase': STANDARD_PHASE, 
+    'equilibrium': 0})
+mdb.jobs['Job-2']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 0, 'jobName': 'Job-2'})
+mdb.jobs['Job-2']._Message(MEMORY_ESTIMATE, {'phase': STANDARD_PHASE, 
+    'jobName': 'Job-2', 'memory': 11043.0})
+mdb.jobs['Job-2']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'Solver problem. Zero pivot when processing D.O.F. 1 at one or more of the internal nodes of 2 elements. The elements have been identified in element set WarnElemSolvProbZeroPiv_1_1_1_1_1.', 
+    'jobName': 'Job-2'})
+mdb.jobs['Job-2']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'EXCESSIVE DISTORTION AT A TOTAL OF 1 INTEGRATION POINTS IN SOLID (CONTINUUM) ELEMENTS', 
+    'jobName': 'Job-2'})
+mdb.jobs['Job-2']._Message(STATUS, {'totalTime': 0.0, 'attempts': ' 1U', 
+    'timeIncrement': 1.0, 'increment': 1, 'stepTime': 0.0, 'step': 1, 
+    'jobName': 'Job-2', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Job-2']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'Solver problem. Zero pivot when processing D.O.F. 1 at one or more of the internal nodes of 2 elements. The elements have been identified in element set WarnElemSolvProbZeroPiv_1_1_1_1_2.', 
+    'jobName': 'Job-2'})
+mdb.jobs['Job-2']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'EXCESSIVE DISTORTION AT A TOTAL OF 1 INTEGRATION POINTS IN SOLID (CONTINUUM) ELEMENTS', 
+    'jobName': 'Job-2'})
+mdb.jobs['Job-2']._Message(STATUS, {'totalTime': 0.0, 'attempts': ' 2U', 
+    'timeIncrement': 0.25, 'increment': 1, 'stepTime': 0.0, 'step': 1, 
+    'jobName': 'Job-2', 'severe': 0, 'iterations': 2, 'phase': STANDARD_PHASE, 
+    'equilibrium': 2})
+mdb.jobs['Job-2']._Message(STATUS, {'totalTime': 0.0, 'attempts': ' 3U', 
+    'timeIncrement': 0.0625, 'increment': 1, 'stepTime': 0.0, 'step': 1, 
+    'jobName': 'Job-2', 'severe': 0, 'iterations': 5, 'phase': STANDARD_PHASE, 
+    'equilibrium': 5})
+mdb.jobs['Job-2']._Message(STATUS, {'totalTime': 0.0, 'attempts': ' 4U', 
+    'timeIncrement': 0.015625, 'increment': 1, 'stepTime': 0.0, 'step': 1, 
+    'jobName': 'Job-2', 'severe': 0, 'iterations': 6, 'phase': STANDARD_PHASE, 
+    'equilibrium': 6})
+mdb.jobs['Job-2']._Message(STATUS, {'totalTime': 0.00390625, 'attempts': 5, 
+    'timeIncrement': 0.00390625, 'increment': 1, 'stepTime': 0.00390625, 
+    'step': 1, 'jobName': 'Job-2', 'severe': 0, 'iterations': 8, 
+    'phase': STANDARD_PHASE, 'equilibrium': 8})
+mdb.jobs['Job-2']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 1, 'jobName': 'Job-2'})
+mdb.jobs['Job-2']._Message(STATUS, {'totalTime': 0.0078125, 'attempts': 1, 
+    'timeIncrement': 0.00390625, 'increment': 2, 'stepTime': 0.0078125, 
+    'step': 1, 'jobName': 'Job-2', 'severe': 0, 'iterations': 6, 
+    'phase': STANDARD_PHASE, 'equilibrium': 6})
+mdb.jobs['Job-2']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 2, 'jobName': 'Job-2'})
+mdb.jobs['Job-2']._Message(STATUS, {'totalTime': 0.01171875, 'attempts': 1, 
+    'timeIncrement': 0.00390625, 'increment': 3, 'stepTime': 0.01171875, 
+    'step': 1, 'jobName': 'Job-2', 'severe': 0, 'iterations': 3, 
+    'phase': STANDARD_PHASE, 'equilibrium': 3})
+mdb.jobs['Job-2']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 3, 'jobName': 'Job-2'})
+mdb.jobs['Job-2']._Message(STATUS, {'totalTime': 0.015625, 'attempts': 1, 
+    'timeIncrement': 0.00390625, 'increment': 4, 'stepTime': 0.015625, 
+    'step': 1, 'jobName': 'Job-2', 'severe': 0, 'iterations': 2, 
+    'phase': STANDARD_PHASE, 'equilibrium': 2})
+mdb.jobs['Job-2']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 4, 'jobName': 'Job-2'})
+mdb.jobs['Job-2']._Message(STATUS, {'totalTime': 0.021484375, 'attempts': 1, 
+    'timeIncrement': 0.005859375, 'increment': 5, 'stepTime': 0.021484375, 
+    'step': 1, 'jobName': 'Job-2', 'severe': 0, 'iterations': 3, 
+    'phase': STANDARD_PHASE, 'equilibrium': 3})
+mdb.jobs['Job-2']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 5, 'jobName': 'Job-2'})
+mdb.jobs['Job-2']._Message(STATUS, {'totalTime': 0.0302734375, 'attempts': 1, 
+    'timeIncrement': 0.0087890625, 'increment': 6, 'stepTime': 0.0302734375, 
+    'step': 1, 'jobName': 'Job-2', 'severe': 0, 'iterations': 3, 
+    'phase': STANDARD_PHASE, 'equilibrium': 3})
+mdb.jobs['Job-2']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 6, 'jobName': 'Job-2'})
+# Save by jmora on 2017_05_19-06.29.10; build 6.14-5 2015_08_18-16.37.49 135153
